@@ -81,4 +81,5 @@
         android:id="@+id/tvResult"
         android:gravity="center_horizontal">
     </TextView>
+
 </LinearLayout>
