@@ -2,84 +2,85 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/inputNumbers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1"
         android:layout_marginLeft="10pt"
         android:layout_marginRight="10pt"
         android:layout_marginTop="3pt">
         <EditText
-            android:layout_weight="1"
+            android:id="@+id/input1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="5pt"
-            android:id="@+id/etNum1"
-            android:layout_width="match_parent"
+            android:layout_weight="1"
             android:inputType="numberDecimal">
         </EditText>
         <EditText
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="5pt"
-            android:id="@+id/etNum2"
+            android:id="@+id/input2"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5pt"
+            android:layout_weight="1"
             android:inputType="numberDecimal">
         </EditText>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/inputSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout2"
-        android:layout_marginTop="3pt"
-        android:layout_marginLeft="5pt"
-        android:layout_marginRight="5pt">
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:text="+"
-            android:textSize="8pt"
-            android:id="@+id/btnAdd">
-        </Button>
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:text="-"
-            android:textSize="8pt"
-            android:id="@+id/btnSub">
-        </Button>
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:text="*"
-            android:textSize="8pt"
-            android:id="@+id/btnMult">
-        </Button>
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:text="/"
-            android:textSize="8pt"
-            android:id="@+id/btnDiv">
-        </Button>
-    </LinearLayout>
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
         android:layout_marginLeft="5pt"
         android:layout_marginRight="5pt"
-        android:textSize="12pt"
+        android:layout_marginTop="3pt">
+        <Button
+            android:id="@+id/add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+"
+            android:textSize="8pt">
+        </Button>
+        <Button
+            android:id="@+id/sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="-"
+            android:textSize="8pt">
+        </Button>
+        <Button
+            android:id="@+id/mult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="*"
+            android:textSize="8pt">
+        </Button>
+        <Button
+            android:id="@+id/div"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="/"
+            android:textSize="8pt">
+        </Button>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5pt"
+        android:layout_marginRight="5pt"
         android:layout_marginTop="3pt"
-        android:id="@+id/tvResult"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:textSize="12pt">
     </TextView>
 
 </LinearLayout>

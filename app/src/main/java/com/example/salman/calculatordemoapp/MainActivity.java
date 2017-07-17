@@ -9,36 +9,28 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+import org.w3c.dom.Text;
 
-    EditText etNum1;
-    EditText etNum2;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-    Button btnAdd;
-    Button btnSub;
-    Button btnMult;
-    Button btnDiv;
-
-    TextView tvResult;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     String oper = "";
+    @BindView(R.id.input1) EditText num1;
+    @BindView(R.id.input2) EditText num2;
+    @BindView(R.id.add) Button btnAdd;
+    @BindView(R.id.sub) Button btnSub;
+    @BindView(R.id.mult) Button btnMult;
+    @BindView(R.id.div) Button btnDiv;
+    @BindView(R.id.result) TextView result;
 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // find the elements
-        etNum1 = (EditText) findViewById(R.id.etNum1);
-        etNum2 = (EditText) findViewById(R.id.etNum2);
-
-        btnAdd = (Button) findViewById(R.id.btnAdd);
-        btnSub = (Button) findViewById(R.id.btnSub);
-        btnMult = (Button) findViewById(R.id.btnMult);
-        btnDiv = (Button) findViewById(R.id.btnDiv);
-
-        tvResult = (TextView) findViewById(R.id.tvResult);
+        ButterKnife.bind(this);
 
         // TODO Explain SetOnClickListener
         // set a listener
@@ -52,44 +44,44 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        float num1 = 0;
-        float num2 = 0;
-        float result = 0;
+        float inp1 = 0;
+        float inp2 = 0;
+        float value = 0;
 
         // check if the fields are empty
-        if (TextUtils.isEmpty(etNum1.getText().toString())
-                || TextUtils.isEmpty(etNum2.getText().toString())) {
+        if (TextUtils.isEmpty(num1.getText().toString())
+                || TextUtils.isEmpty(num2.getText().toString())) {
             return;
         }
 
         // read EditText and fill variables with numbers
-        num1 = Float.parseFloat(etNum1.getText().toString());
-        num2 = Float.parseFloat(etNum2.getText().toString());
+        inp1 = Float.parseFloat(num1.getText().toString());
+        inp2 = Float.parseFloat(num2.getText().toString());
 
         // defines the button that has been clicked and performs the corresponding operation
         // write operation into oper, we will use it later for output
         switch (v.getId()) {
-            case R.id.btnAdd:
+            case R.id.add:
                 oper = "+";
-                result = num1 + num2;
+                value = inp1 + inp2;
                 break;
-            case R.id.btnSub:
+            case R.id.sub:
                 oper = "-";
-                result = num1 - num2;
+                value = inp1 - inp2;
                 break;
-            case R.id.btnMult:
+            case R.id.mult:
                 oper = "*";
-                result = num1 * num2;
+                value = inp1 * inp2;
                 break;
-            case R.id.btnDiv:
+            case R.id.div:
                 oper = "/";
-                result = num1 / num2;
+                value = inp1 / inp2;
                 break;
             default:
                 break;
         }
 
         // form the output line
-        tvResult.setText(num1 + " " + oper + " " + num2 + " = " + result);
+        result.setText("" + value);
     }
 }
